@@ -1,0 +1,265 @@
+microservice-name                portnumber
+
+config-service                      8888
+registry-service                    8761
+auth-service                        8092
+user-service                        9092
+trip-service                        9091
+zuul-service                        8079
+
+note: run microservices in above mentioned order to avoid runtime errors
+
+
+exposed apis through zuul
+must include 
+1)http://localhost:8079/trip/endpoint        for tripservice
+2)http://localhost:8079/user/endpoint        for userservice
+3)http://localhost:8079/cust/endpoint        for authservice
+
+example:
+http://localhost:8079/trip/admin/trip   ----trip-service
+http://localhost:8079/user/cust/{custId} ---user-service
+http://localhost:8079/cust/hello          --auth-service
+
+
+
+
+auth-service endpoints
+------------------------------------------------------------------------
+POST      /login
+
+http://localhost:8090/auth-service/login
+
+or 
+http://localhost:8079/cust/login
+
+
+{
+"username" : "8333083876",
+"password" : "Ram@123#"
+}
+
+
+
+http://localhost:8090/auth-service/register
+
+or
+
+http://localhost:8079/cust/register
+
+POST     /register
+
+{
+"id":"1",
+"name" : "8333083876",
+"emailId" : "8333083876",
+"password" : "Ram@123#",
+"role" : "ROLE_ADMIN"
+}
+
+
+{
+"id":"2",
+"name" : "8333083876",
+"emailId" : "8333083876",
+"password" : "Ram@123#",
+"role" : "ROLE_CUSTOMER"
+}
+{
+"id":"3",
+"name" : "8333083876",
+"emailId" : "8333083876",
+"password" : "Ram@123#",
+"role" : "ROLE_DRIVER"
+}
+
+
+
+
+
+GET       /logout
+
+
+
+
+
+
+
+
+
+user-service endpoints
+------------------------------------------------------------------------
+
+GET        /save
+
+{
+"id":"1"
+"name" : "8333083876",
+"password" : "Ram@123#",
+"emailId" : "8333083876",
+"role" : "ROLE_ADMIN"
+}
+
+
+GET         /cust/{custId}
+http://localhost:9092/user-service/cust/1
+
+{
+"customerId":"1"
+"customerName" : "8333083876",
+"email" : "8333083876",
+"role" : "ROLE_ADMIN"
+}
+
+GET         /customers
+
+http://localhost:9092/user-service/customers
+
+{
+"customerId":"1"
+"customerName" : "8333083876",
+"email" : "8333083876",
+"role" : "ROLE_ADMIN"
+},
+{
+"customerId":"2"
+"customerName" : "8328115425",
+"email" : "8328115425",
+"role" : "ROLE_ADMIN"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Trip-service endpoints
+------------------------------------------------------------------------
+
+
+POST      /trip
+
+http://localhost:9091/trip-service/bookride
+
+{
+"tripid":"1",
+"vehicleName":"bike",
+"startAddress":"hinjewadi",
+"endAddress":"quadron",
+"distance":"7",
+"fare":"100",
+"rating":"5",
+"userId":"1",
+"Driverid":"2",
+"vehicleId":"3",
+"username" : "8333083876",
+"driverName" : "8328115425",
+"date" : "11/08/19",
+"status":"upcoming"
+}
+
+
+
+GET          /admin/trip
+
+http://localhost:9091/trip-service/admin/trip
+
+or 
+http://localhost:9091/cust/admin/trip
+{
+"tripId":"1",
+"username" : "8333083876",
+"driverName" : "8328115425",
+"date" : "11/08/19",
+"status":"upcoming"
+}
+
+
+{
+"tripId":"2",
+"username" : "8333083876",
+"driverName" : "8328115425",
+"date" : "11/08/19",
+"status":"upcoming"
+}
+
+
+
+GET           /emp/{empId}/trips
+http://localhost:9091/trip-service/emp/1/trip
+
+{
+"tripId":"2",
+"username" : "8333083876",
+"driverName" : "8328115425",
+"date" : "11/08/19",
+"status":"upcoming"
+}
+
+{
+"tripId":"1",
+"username" : "8333083876",
+"driverName" : "8328115425",
+"date" : "11/08/19",
+"status":"upcoming"
+}
+
+
+GET           /cust/{custId}/trip
+http://localhost:9091/trip-service/cust/1/trip
+
+{
+"tripId":"2",
+"username" : "8333083876",
+"driverName" : "8328115425",
+"date" : "11/08/19",
+"status":"upcoming"
+}
+
+{
+"tripId":"1",
+"username" : "8333083876",
+"driverName" : "8328115425",
+"date" : "11/08/19",
+"status":"upcoming"
+}
+
+
+
+
+
+
+             
+
+
+
+------------------------------------------------------------------------------------------
+
+
+admin@admin.com  // email
+111              // username
+admin          //      password
+
+
+
+
+customer@customer.com       // email
+222                   // username
+customer            //password
+			
+
+	
+
+customer@customer.com       //driver email
+333                        / username
+customer                   // password
+					
+

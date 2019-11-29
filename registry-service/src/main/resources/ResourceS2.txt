@@ -1,0 +1,294 @@
+localhost:9092/user-service/customers
+[
+    {
+        "customerId": "111",
+        "customerName": "Admin Name",
+        "email": "AEMAIL",
+        "role": "ROLE_ADMIN"
+    },
+    {
+        "customerId": "222",
+        "customerName": "Customer Name",
+        "email": "CEMAIL",
+        "role": "ROLE_CUSTOMER"
+    },
+    {
+        "customerId": "333",
+        "customerName": "Driver Name",
+        "email": "DEMAIL",
+        "role": "ROLE_DRIVER"
+    }
+]
+
+localhost:9092/user-service/cust/111
+{
+    "customerId": "111",
+    "customerName": "Admin Name",
+    "email": "AEMAIL",
+    "role": "ROLE_ADMIN"
+}
+
+select * from address_entity ->
+
+ID  	ADD_ID  	HOME_ADDRESS  	WORK_ADDRESS  
+1	1	Home Address 1	Work Address1
+2	2	Home Address 2	Work Address 2
+
+select * from customer_entity ->
+
+ID  	CUSTOMER_ID  	CUSTOMER_NAME  	EMAIL  	ROLE  
+1	111	Admin Name	AEMAIL	ROLE_ADMIN
+2	222	Customer Name	CEMAIL	ROLE_CUSTOMER
+3	333	Driver Name	DEMAIL	ROLE_DRIVER
+
+
+select * from customer_details_entity ->
+
+ID  	ADD_ID  	AGE  	CUSTOMER_ID  	GENDER  	MOBILE  
+1	1	21	222	M	999999
+2	2	23	333	F	111111
+
+
+Post: localhost:9091/trip-service/trip
+
+{
+	"startAddress":"Start Address -10",
+	"endAddress":"End Address -10",
+	"distance":"15",
+	"fare":"150",
+	"rating":"3",
+	"driverId":"333",
+	"status":"Upcoming",
+	"vehicleId":"null",
+	"userId":"222"
+
+}
+
+
+
+
+GET: localhost:9091/trip-service/admin/trips ->
+
+[
+    {
+        "tripId": "f38a6a88-7320-4ee2-988c-fa87a2e47d85",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Booked"
+    },
+    {
+        "tripId": "f59ec4e5-0e6a-40b5-ad4a-e168cfe2154f",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "bdb823bd-f7f2-49ac-bf05-4e59dbfb8241",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "5d5b8d69-6aba-4afc-a641-f7ab1d064539",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "44a79918-626e-4f78-b973-e286fb6bd721",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "34204a27-60d1-4fc5-a7df-8d7b61ba5e53",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "e22a659d-1975-41a9-9526-a813883d1a69",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "d6bb83ac-5f08-4753-84de-e5cf25a98348",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "666d3a74-6db8-44a5-a0cc-10834cac1366",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "6e1bfb5a-eb40-42a9-a455-27e1007a25fa",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    }
+]
+
+GET:  localhost:9091/trip-service/emp/333/trips
+
+[
+    {
+        "tripId": "f38a6a88-7320-4ee2-988c-fa87a2e47d85",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Booked"
+    },
+    {
+        "tripId": "f59ec4e5-0e6a-40b5-ad4a-e168cfe2154f",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "bdb823bd-f7f2-49ac-bf05-4e59dbfb8241",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "5d5b8d69-6aba-4afc-a641-f7ab1d064539",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "44a79918-626e-4f78-b973-e286fb6bd721",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "34204a27-60d1-4fc5-a7df-8d7b61ba5e53",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "e22a659d-1975-41a9-9526-a813883d1a69",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "d6bb83ac-5f08-4753-84de-e5cf25a98348",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "666d3a74-6db8-44a5-a0cc-10834cac1366",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "6e1bfb5a-eb40-42a9-a455-27e1007a25fa",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    }
+]
+
+
+GET: localhost:9091/trip-service/cust/222/trips
+
+[
+    {
+        "tripId": "f38a6a88-7320-4ee2-988c-fa87a2e47d85",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Booked"
+    },
+    {
+        "tripId": "f59ec4e5-0e6a-40b5-ad4a-e168cfe2154f",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "bdb823bd-f7f2-49ac-bf05-4e59dbfb8241",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "5d5b8d69-6aba-4afc-a641-f7ab1d064539",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "44a79918-626e-4f78-b973-e286fb6bd721",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "34204a27-60d1-4fc5-a7df-8d7b61ba5e53",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "e22a659d-1975-41a9-9526-a813883d1a69",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "d6bb83ac-5f08-4753-84de-e5cf25a98348",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "666d3a74-6db8-44a5-a0cc-10834cac1366",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    },
+    {
+        "tripId": "6e1bfb5a-eb40-42a9-a455-27e1007a25fa",
+        "userName": "Customer Name",
+        "driverName": "Driver Name",
+        "date": "2019-09-24",
+        "status": "Upcoming"
+    }
+]
